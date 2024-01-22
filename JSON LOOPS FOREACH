@@ -1,0 +1,93 @@
+ iterate through the JSON structure using various types of loops in JavaScript:
+// Sample Resume JSON
+const resume = {
+  "personalInformation": {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1 (123) 456-7890",
+    "address": "123 Main Street, Cityville, State, 12345"
+  },
+  "summary": "Experienced and versatile software engineer...",
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "school": "University of Techland",
+      "graduationYear": 2016
+    }
+  ],
+  "workExperience": [
+    {
+      "position": "Software Engineer",
+      "company": "Tech Solutions Inc.",
+      "startDate": "2016-07-01",
+      "endDate": "2021-12-31",
+      "responsibilities": [
+        "Developed and maintained web applications using React.js and Node.js.",
+        "Collaborated with cross-functional teams to deliver high-quality software products.",
+        "Implemented database solutions and optimized SQL queries for improved performance."
+      ]
+    },
+    {
+      "position": "Senior Software Engineer",
+      "company": "Innovate Tech Labs",
+      "startDate": "2022-01-01",
+      "endDate": null,
+      "responsibilities": [
+        "Leading a team of developers in the design and implementation of new features.",
+        "Conducting code reviews and providing mentorship to junior team members.",
+        "Researching and implementing new technologies to enhance product capabilities."
+      ]
+    }
+  ],
+  "skills": [
+    "JavaScript (ES6+)",
+    "React.js",
+    "Node.js",
+    "SQL and NoSQL databases",
+    "RESTful APIs",
+    "Git version control",
+    "Agile and Scrum methodologies"
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Developer - Associate",
+      "organization": "Amazon Web Services",
+      "completionDate": "2019-05-15"
+    }
+  ],
+  "languages": ["English (Fluent)", "Spanish (Intermediate)"],
+  "interests": ["Open-source projects", "Machine learning", "Hiking", "Photography"]
+};
+
+// Iterate using for...in for objects
+for (const key in resume) {
+  if (resume.hasOwnProperty(key)) {
+    console.log(`Key: ${key}, Value: ${JSON.stringify(resume[key])}`);
+  }
+}
+
+// Iterate using forEach for arrays
+resume.education.forEach((edu, index) => {
+  console.log(`Education ${index + 1}: ${edu.degree} at ${edu.school}, Graduated in ${edu.graduationYear}`);
+});
+
+resume.workExperience.forEach((job, index) => {
+  console.log(`Job ${index + 1}: ${job.position} at ${job.company}, Start Date: ${job.startDate}, End Date: ${job.endDate || 'Present'}`);
+  console.log(`Responsibilities: ${job.responsibilities.join('\n')}`);
+});
+
+resume.skills.forEach((skill, index) => {
+  console.log(`Skill ${index + 1}: ${skill}`);
+});
+
+resume.certifications.forEach((cert, index) => {
+  console.log(`Certification ${index + 1}: ${cert.name} from ${cert.organization}, Completed on ${cert.completionDate}`);
+});
+
+resume.languages.forEach((language, index) => {
+  console.log(`Language ${index + 1}: ${language}`);
+});
+
+resume.interests.forEach((interest, index) => {
+  console.log(`Interest ${index + 1}: ${interest}`);
+});
